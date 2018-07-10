@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import { Text, Image, View, StyleSheet } from 'react-native';
 import Card from './Card';
 import CardSection from './CardSection';
+import Button from './Button';
 
 export default class AlbumDetail extends Component {
   render() {
     const { thumbnail_image, title, artist, image } = this.props.album;
+    
     const {
       thumbnailStyle,
       headerContentStyle,
@@ -13,6 +15,7 @@ export default class AlbumDetail extends Component {
       headerTextStyle,
       albumCoverStyle
     } = styles;
+
     return (
       <Card>
         <CardSection>
@@ -26,6 +29,13 @@ export default class AlbumDetail extends Component {
         </CardSection>
         <CardSection>
           <Image source={{ uri: image }} style={albumCoverStyle} />
+        </CardSection>
+        <CardSection>
+          <Button
+            onPress={() => {
+              console.log(title);
+            }}
+          />
         </CardSection>
       </Card>
     );
