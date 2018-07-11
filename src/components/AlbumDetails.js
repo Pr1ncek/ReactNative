@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
-import { Text, Image, View, StyleSheet } from 'react-native';
+import { Text, Image, View, StyleSheet, Linking } from 'react-native';
 import Card from './Card';
 import CardSection from './CardSection';
 import Button from './Button';
 
 export default class AlbumDetail extends Component {
   render() {
-    const { thumbnail_image, title, artist, image } = this.props.album;
-    
+    const { thumbnail_image, title, artist, image, url } = this.props.album;
+
     const {
       thumbnailStyle,
       headerContentStyle,
@@ -33,7 +33,7 @@ export default class AlbumDetail extends Component {
         <CardSection>
           <Button
             onPress={() => {
-              console.log(title);
+              Linking.openURL(url);
             }}
           />
         </CardSection>
